@@ -1,0 +1,80 @@
+/* ********** VARIABLES ********** */
+
+:root {
+  --main: 'Courier Prime', serif;
+  --title: 'Glass Antiqua', cursive;
+
+  --success: hsl(120, 39%, 54%);
+  --info: hsl(194, 67%, 61%);
+  --warning: hsl(45, 100%, 51%);
+  --danger: hsl(2, 65%, 58%);
+  --light: hsl(0, 0%, 92.2%);
+  --dark: hsl(207, 57%, 14%);
+
+  --border: double;
+  --radius: 50px;
+}
+
+/* ********** GLOBAL ********** */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 50px;
+  font-family: var(--main);
+  text-align: center;
+  background: var(--dark);
+  color: var(--light);
+}
+
+main,
+hgroup,
+ul {
+  display: flex;
+}
+
+main,
+hgroup,
+main > ul {
+  flex-direction: column;
+}
+
+main {
+  gap: 50px;
+}
+
+hgroup {
+  gap: 10px;
+  color: var(--warning);
+}
+
+ul {
+  gap: 20px;
+  list-style: none;
+  color: var(--info);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:focus {
+    color: var(--success);
+  }
+}
+
+footer {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 50px;
+
+  & > ul {
+    place-content: center;
+  }
+}
