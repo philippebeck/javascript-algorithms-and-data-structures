@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Roman Numeral Converter</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="description" content="Free Code Camp - JavaScript Algorithms & Data Structures - Build a Roman Numeral Converter Project">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Glass+Antiqua&display=swap">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main>
+        <h1>Roman Numeral Converter</h1>
+
+        <hgroup>
+            <h2>Usage :</h2>
+            <p>
+                Type a number between 0 & 4000 not inclusive<br>
+                Then click the convert button
+            </p>
+        </hgroup>
+
+        <table>
+            <thead>
+                <th colspan="8">Roman Numeral Values</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>I</td>
+                    <td>V</td>
+                    <td>X</td>
+                    <td>L</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>M</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>5</td>
+                    <td>10</td>
+                    <td>50</td>
+                    <td>100</td>
+                    <td>500</td>
+                    <td>1000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form>
+            <label for="number">Enter a Number :</label>
+            <input id="number" type="number" placeholder="0 < Number < 4000">
+            <button id="convert-btn">Convert</button>
+        </form>
+
+        <p id="output"></p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
