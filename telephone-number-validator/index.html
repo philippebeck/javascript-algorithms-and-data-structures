@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Telephone Number Validator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="description" content="Free Code Camp - JavaScript Algorithms & Data Structures - Build a Telephone Number Validator Project">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=VT323&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main>
+        <h1>Telephone Number Validator</h1>
+
+        <hgroup>
+            <h2>Usage:</h2>
+            <p>
+                Type a phone number,<br>
+                then type Enter or click the Check button,<br>
+                to see if it's a valid US phone number ; <br>
+                you can clear the result by clicking the Clear button
+            </p>
+        </hgroup>
+
+        <form>
+            <div class="top">
+                <div class="camera"></div>
+            </div>
+
+            <label for="user-input">Type a Phone Number:</label>
+            <input id="user-input" type="text" maxlength="20">
+
+            <p id="results-div"></p>
+
+            <footer>
+                <button id="check-btn">Check</button>
+                <button id="clear-btn">Clear</button>
+            </footer>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
