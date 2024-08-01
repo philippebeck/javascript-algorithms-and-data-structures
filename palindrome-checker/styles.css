@@ -74,7 +74,7 @@ form {
   border: 5px var(--border) var(--light);
   border-radius: var(--radius);
   max-width: 95vw;
-  background-color: var(--dark);
+  background: var(--dark);
   color: var(--light);
 }
 

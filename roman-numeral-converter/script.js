@@ -89,7 +89,14 @@ const convertToRoman = (e) => {
   if (isValid(value, number)) outputElt.textContent = getRomanNumber(number);
 };
 
+/**
+ * Initializes event listeners for form submission & button click events
+ */
+const run = () => {
+  formElt.addEventListener('submit', convertToRoman);
+  buttonElt.addEventListener('click', convertToRoman);
+}
+
 // ********** MAIN **********
 
-formElt.addEventListener('submit', convertToRoman);
-buttonElt.addEventListener('click', convertToRoman);
+run();

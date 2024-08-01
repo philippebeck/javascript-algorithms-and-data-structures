@@ -32,7 +32,14 @@ const checkPalindrome = (e) => {
   resultElt.textContent = `${value} ${result}`;
 };
 
+/**
+ * Initializes event listeners for form submission & button click events
+ */
+const run = () => {
+  formElt.addEventListener('submit', checkPalindrome);
+  buttonElt.addEventListener('click', checkPalindrome);
+}
+
 // ********** MAIN **********
 
-formElt.addEventListener('submit', checkPalindrome);
-buttonElt.addEventListener('click', checkPalindrome);
+run();
