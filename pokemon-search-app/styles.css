@@ -1,0 +1,221 @@
+/* ********** VARIABLES ********** */
+
+:root {
+  --main:  Arimo, sans-serif;
+  --title: VT323, monospace;
+
+  --success:    hsl(80,100%,35%);
+  --info:       hsl(199, 68%, 50%);
+  --warning:    hsl(32,100%,50%);
+  --danger:     hsl(0,100%,40%);
+  --light:      hsl(0,0%,100%);
+  --dark:       hsl(0,0%,2%);
+
+  --border: groove;
+  --radius: 10px;
+}
+
+/* ********** GLOBAL ********** */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 50px;
+  font-family: var(--main);
+  text-align: center;
+  background: var(--dark);
+  color: var(--light);
+}
+
+main {
+  display: flex;
+  flex-flow: column;
+  place-items: center;
+  gap: 50px;
+}
+
+h1 {
+  font-family: var(--title);
+  font-size: 3rem;
+}
+
+/* ********** FORM ********** */
+
+form {
+  display: flex;
+  flex-flow: column;
+  place-items: center;
+  border: 5px var(--border) var(--light);
+  border-radius: var(--radius);
+  max-width: 95vw;
+  background: var(--dark);
+  color: var(--light);
+}
+
+label,
+button {
+  margin: 10px;
+  font-size: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+button {
+  border: none;
+  padding: 10px 20px;
+}
+
+input {
+  outline: none;
+  max-width: 90vw;
+  font-size: 2rem;
+  text-align: center;
+  background: var(--light);
+  color: var(--dark);
+}
+
+button {
+  border-radius: var(--radius);
+  background: var(--success);
+  color: var(--dark);
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  transform: scale(0.95);
+  transition: transform 500ms;
+}
+
+/* ********** LIST ********** */
+
+ul {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+  min-height: 200px;
+  list-style: none;
+  background-color: #f0f1f7;
+  color: var(--dark);
+}
+
+[id=types] {
+  display: flex;
+  flex-flow: wrap;
+  place-content: center;
+  gap: 5px;
+  min-height: 30px;
+}
+
+.type {
+  border-radius: var(--radius);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+/* ********** TYPES ********** */
+
+.normal {
+  background: #b7b7aa;
+}
+
+.fire {
+  background: #ff6f52;
+}
+
+.water {
+  background: #42a1ff;
+}
+
+.electric {
+  background: #fecc33;
+}
+
+.grass {
+  background: #78cc55;
+}
+
+.ice {
+  background: #66ccfe;
+}
+
+.fighting {
+  background: #d3887e;
+}
+
+.poison {
+  background: #c68bb7;
+}
+
+.ground {
+  background: #dfba52;
+}
+
+.flying {
+  background: #8899ff;
+}
+
+.psychic {
+  background: #ff66a3;
+}
+
+.bug {
+  background: #aabb23;
+}
+
+.rock {
+  background: #baaa66;
+}
+
+.ghost {
+  background: #9995d0;
+}
+
+.dragon {
+  background: #9e93f1;
+}
+
+.dark {
+  background: #b59682;
+}
+
+.steel {
+  background: #abaabb;
+}
+
+.fairy {
+  background: #ed99ed;
+}
+
+/* ********** TABLE ********** */
+
+table,
+th,
+td {
+  border: 3px var(--border) var(--light);
+}
+
+table {
+  border-collapse: collapse;
+  max-width: 90vw;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--info);
+}
+
+th,
+td {
+  padding: 10px;
+}
