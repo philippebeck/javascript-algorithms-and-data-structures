@@ -1,15 +1,15 @@
 /* ********** VARIABLES ********** */
 
 :root {
-  --main: 'Courier Prime', serif;
+  --main:  'Courier Prime', serif;
   --title: 'Glass Antiqua', cursive;
 
-  --success: hsl(120, 39%, 54%);
-  --info: hsl(194, 67%, 61%);
-  --warning: hsl(45, 100%, 51%);
-  --danger: hsl(2, 65%, 58%);
-  --light: hsl(0, 0%, 92.2%);
-  --dark: hsl(207, 57%, 14%);
+  --success:    hsl(120,39%,54%);
+  --info:       hsl(194,67%,61%);
+  --warning:    hsl(45,100%,51%);
+  --danger:     hsl(2,65%,58%);
+  --light:      hsl(0,0%,92.2%);
+  --dark:       hsl(207,57%,14%);
 
   --border: double;
   --radius: 50px;
