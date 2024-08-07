@@ -101,7 +101,7 @@ const updateCashRegister = (change) => {
   cashElt.value = '';
   totalElt.textContent = `Total: $${price}`;
 
-  changeElt.innerHTML = `<p><strong>Change in drawer:</strong></p>
+  changeElt.innerHTML = `<p><b>Change in drawer:</b></p>
     ${cid.map(money => `<p>${currency[money[0]]}: $${money[1]}</p>`).join('')}`;
 };
 
@@ -116,9 +116,9 @@ const calculateCashRegister = (e) => {
 
   if (!cash) return;
 
-  let changeDue     = cash - price;
-  let reversedCid   = cid.reverse();
-  let denominations = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
+  let changeDue      = cash - price;
+  let reversedCid    = cid.reverse();
+  let currencyValues = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
 
   let result = {
     status: 'OPEN',
@@ -131,18 +131,18 @@ const calculateCashRegister = (e) => {
   if (totalCid === changeDue) result.status = 'CLOSED';
 
   for (let i = 0; i <= reversedCid.length; i++) {
-    if (changeDue >= denominations[i] && changeDue > 0) {
+    if (changeDue >= currencyValues[i] && changeDue > 0) {
       let count = 0;
       let total = reversedCid[i][1];
 
-      while (total > 0 && changeDue >= denominations[i]) {
-        total -= denominations[i];
-        changeDue = parseFloat((changeDue -= denominations[i]).toFixed(2));
+      while (total > 0 && changeDue >= currencyValues[i]) {
+        total -= currencyValues[i];
+        changeDue = parseFloat((changeDue -= currencyValues[i]).toFixed(2));
         count++;
       }
 
       if (count > 0) {
-        result.change.push([reversedCid[i][0], count * denominations[i]]);
+        result.change.push([reversedCid[i][0], count * currencyValues[i]]);
       }
     }
   }
