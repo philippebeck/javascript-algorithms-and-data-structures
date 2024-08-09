@@ -17,10 +17,10 @@ const resultElt = document.querySelector('#result');
 const checkPalindrome = (e) => {
   e.preventDefault();
 
-  const value   = textElt.value;
+  const value   = textElt.value.trim();
   textElt.value = "";
 
-  if (value === '') {
+  if (!value) {
     alert('Please input a value');
     return;
   }
