@@ -19,6 +19,8 @@ const speedElt          = document.querySelector('#speed');
 const formElt           = document.querySelector('form');
 const inputElt          = document.querySelector('#search-input');
 
+const statEltArray = [hpElt, attackElt, defenseElt, specialAttackElt, specialDefenseElt, speedElt];
+
 // ********** FUNCTIONS **********
 
 /**
@@ -48,39 +50,20 @@ const setInfos = (data) => {
  *
  * @param {Object} data - The data object containing the statistics of the Pokemon.
  * @param {Array} data.stats - The array of statistics of the Pokemon.
- * @param {number} data.stats[0].base_stat - The base stat of the HP.
- * @param {number} data.stats[1].base_stat - The base stat of the Attack.
- * @param {number} data.stats[2].base_stat - The base stat of the Defense.
- * @param {number} data.stats[3].base_stat - The base stat of the Special Attack.
- * @param {number} data.stats[4].base_stat - The base stat of the Special Defense.
- * @param {number} data.stats[5].base_stat - The base stat of the Speed.
  */
 const setStats = (data) => {
-  hpElt.textContent             = data.stats[0].base_stat;
-  attackElt.textContent         = data.stats[1].base_stat;
-  defenseElt.textContent        = data.stats[2].base_stat;
-  specialAttackElt.textContent  = data.stats[3].base_stat;
-  specialDefenseElt.textContent = data.stats[4].base_stat;
-  speedElt.textContent          = data.stats[5].base_stat;
+  statEltArray.forEach((statElt, index) => statElt.textContent = data.stats[index].base_stat);
 }
 
 /**
- * Resets the display by removing the sprite element and setting the text content of various elements to empty strings.
+ * Resets the display by removing the sprite element 
+ * And setting the text content of various elements to empty strings.
  */
 const resetDisplay = () => {
   if (spriteElt) spriteElt.remove();
 
-  nameElt.textContent           = '';
-  idElt.textContent             = '';
-  typesElt.innerHTML            = '';
-  heightElt.textContent         = '';
-  weightElt.textContent         = '';
-  hpElt.textContent             = '';
-  attackElt.textContent         = '';
-  defenseElt.textContent        = '';
-  specialAttackElt.textContent  = '';
-  specialDefenseElt.textContent = '';
-  speedElt.textContent          = '';
+  const infoEltArray = [nameElt, idElt, typesElt, heightElt, weightElt, ...statEltArray];
+  infoEltArray.forEach(elt => elt.textContent = '');
 };
 
 /**
@@ -93,8 +76,8 @@ const getPokemon = async (e) => {
   e.preventDefault();
 
   try {
-    const pokemon  = inputElt.value.toLowerCase();
-    const response = await fetch(URL + pokemon);
+    const POKEMON  = inputElt.value.toLowerCase();
+    const response = await fetch(URL + POKEMON);
     const data     = await response.json();
 
     setInfos(data);
@@ -107,7 +90,6 @@ const getPokemon = async (e) => {
   } catch (error) {
     resetDisplay();
     alert('Pokemon not found');
-    console.error(`Pokemon not found: ${error}`);
   }
 };
 
