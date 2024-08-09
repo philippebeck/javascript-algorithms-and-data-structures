@@ -44,59 +44,40 @@ const getRomanNumber = (number) => {
   return result;
 };
 
-
 /**
- * Validates the input value & number.
+ * Displays the result of a Roman numeral conversion based on the input value & number.
  *
- * @param {string} value - The input value to be validated
- * @param {number} number - The number to be validated
- * @return {boolean} Returns true if the input value is valid, false otherwise
+ * @param {string} value - The input value to be validated.
+ * @param {number} number - The number to be converted to a Roman numeral.
  */
-const isValid = (value, number) => {
-  if (!value || value.match(/[e.]/g)) {
-    outputElt.textContent = 'Please enter a valid number';
+const displayResult = (value, number) => {
+  const INVALID_NUM = 'Please enter a valid number';
+  const NEGATIV_NUM = 'Please enter a number greater than or equal to 1';
+  const MAX_NUM     = 'Please enter a number less than or equal to 3999';
 
-  } else if (number < 1) {
-    outputElt.textContent = 'Please enter a number greater than or equal to 1';
-
-  } else if (number > 3999) {
-    outputElt.textContent = 'Please enter a number less than or equal to 3999';
-
-  } else {
-    return true;
-  }
-
-  outputElt.classList.add('alert');
-
-  return false;
+  !value || value.match(/[e.]/g) ? outputElt.textContent = INVALID_NUM
+    : (number < 1) ? outputElt.textContent = NEGATIV_NUM
+    : (number > 3999) ? outputElt.textContent = MAX_NUM
+    : (outputElt.textContent = getRomanNumber(number)) && outputElt.classList.remove('alert');
 };
 
 /**
- * Runs the conversion process based on
- * the input value from the 'number' element
- * 
+ * Handles the form submission event to convert a number to a Roman numeral.
+ *
  * @param {Event} e - The event object from the form submission
  */
 const convertToRoman = (e) => {
   e.preventDefault();
 
-  const value  = numberElt.value;
-  const number = parseInt(value, 10);
+  const VALUE  = numberElt.value;
+  const NUMBER = parseInt(VALUE, 10);
 
   outputElt.textContent = '';
-  outputElt.classList.toggle('alert', false);
+  outputElt.classList.add('alert');
 
-  if (isValid(value, number)) outputElt.textContent = getRomanNumber(number);
+  displayResult(VALUE, NUMBER);
 };
-
-/**
- * Initializes event listeners for form submission & button click events
- */
-const run = () => {
-  formElt.addEventListener('submit', convertToRoman);
-  buttonElt.addEventListener('click', convertToRoman);
-}
 
 // ********** MAIN **********
 
-run();
+formElt.addEventListener('submit', convertToRoman);
