@@ -17,21 +17,21 @@ const resultElt = document.querySelector('#result');
 const checkPalindrome = (e) => {
   e.preventDefault();
 
-  const value   = textElt.value.trim();
+  const VALUE   = textElt.value.trim();
   textElt.value = "";
 
-  if (!value) {
+  if (!VALUE) {
     alert('Please input a value');
     return;
   }
 
-  const lowerCaseValue = value.replace(/[^A-Za-z0-9]/gi, '').toLowerCase();
-  const reversedValue  = [...lowerCaseValue].reverse().join('');
+  const LOWER_CASE_VALUE = VALUE.replace(/[^A-Za-z0-9]/gi, '').toLowerCase();
+  const REVERSED_VALUE   = [...LOWER_CASE_VALUE].reverse().join('');
 
-  const isPalindrome = lowerCaseValue === reversedValue;
-  const result       = isPalindrome ? 'is a palindrome' : 'is not a palindrome';
+  const IS_PALINDROME = LOWER_CASE_VALUE === REVERSED_VALUE;
+  const RESULT        = IS_PALINDROME ? 'is a palindrome' : 'is not a palindrome';
 
-  resultElt.textContent = `${value} ${result}`;
+  resultElt.textContent = `${VALUE} ${RESULT}`;
 };
 
 // ********** MAIN **********
