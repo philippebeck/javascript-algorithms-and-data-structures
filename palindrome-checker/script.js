@@ -16,7 +16,9 @@ const resultElt = document.querySelector('#result');
  */
 const checkPalindrome = (e) => {
   e.preventDefault();
-  const value = textElt.value;
+
+  const value   = textElt.value;
+  textElt.value = "";
 
   if (value === '') {
     alert('Please input a value');
@@ -32,14 +34,6 @@ const checkPalindrome = (e) => {
   resultElt.textContent = `${value} ${result}`;
 };
 
-/**
- * Initializes event listeners for form submission & button click events
- */
-const run = () => {
-  formElt.addEventListener('submit', checkPalindrome);
-  buttonElt.addEventListener('click', checkPalindrome);
-}
-
 // ********** MAIN **********
 
-run();
+formElt.addEventListener('submit', checkPalindrome);
