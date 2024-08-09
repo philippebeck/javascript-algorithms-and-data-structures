@@ -22,9 +22,11 @@ const resultsElt = document.querySelector('#results-div');
  */
 const checkNumber = (e) => {
   e.preventDefault();
-  const value = textElt.value;
 
-  if (value === '') {
+  const VALUE   = textElt.value.trim();
+  textElt.value = '';
+
+  if (!VALUE) {
     alert('Please provide a phone number');
     return;
   }
@@ -32,17 +34,11 @@ const checkNumber = (e) => {
   const resultElt = document.createElement('p');
   const regex     = new RegExp(`${COUNTRY}${AREA}${SPECIAL}${NUMBER}`);
 
-  if (regex.test(value)) {
-    resultElt.style.color = 'var(--success)';
-  } else {
-    resultElt.style.color = 'var(--danger)';
-  }
+  if (regex.test(VALUE)) resultElt.style.color = 'var(--success)';
+  else resultElt.style.color = 'var(--danger)';
 
-  resultElt.className   = 'resultElt';
-  resultElt.textContent = `${regex.test(value) ? 'Valid' : 'Invalid'} US number: ${value}`;
-
+  resultElt.textContent = `${regex.test(VALUE) ? 'Valid' : 'Invalid'} US number: ${VALUE}`;
   resultsElt.appendChild(resultElt);
-  textElt.value = '';
 };
 
 /**
@@ -56,11 +52,10 @@ const clearNumber = (e) => {
 };
 
 /**
- * Initializes event listeners for the form, check button & clear button
+ * Initializes event listeners for the form & clear button
  */
 const run = () => {
   formElt.addEventListener('submit', checkNumber);
-  checkElt.addEventListener('click', checkNumber);
   clearElt.addEventListener('click', clearNumber);
 }
 
