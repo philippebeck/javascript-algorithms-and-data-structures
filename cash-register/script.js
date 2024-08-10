@@ -50,21 +50,20 @@ let cid = [
  * Returns the cash value if it is greater than the price.
  */
 const checkCash = () => {
-  const cash = Number(cashElt.value);
+  const cash    = Number(cashElt.value);
+  cashElt.value = '';
 
   if (!cash) return false;
 
   if (cash < price) {
     changeDueElt.innerHTML = '<p>Status: INSUFFICIENT_FUNDS</p>';
     alert('Customer does not have enough money to purchase the item');
-    cashElt.value = '';
 
     return false;
   }
 
   if (cash === price) {
     changeDueElt.innerHTML = '<p>No change due - customer paid with exact cash</p>';
-    cashElt.value = '';
 
     return false;
   }
@@ -98,7 +97,6 @@ const updateCashRegister = (change) => {
     }
   }
 
-  cashElt.value = '';
   totalElt.textContent = `Total: $${price}`;
 
   changeElt.innerHTML = `<p><b>Change in drawer:</b></p>
@@ -159,8 +157,6 @@ const calculateCashRegister = (e) => {
  */
 const run = () => {
   formElt.addEventListener('submit', calculateCashRegister)
-  purchaseBtnElt.addEventListener('click', calculateCashRegister);
-
   updateCashRegister();
 }
 
